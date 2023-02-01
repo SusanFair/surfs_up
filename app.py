@@ -1,22 +1,41 @@
 # Import dependencies
-from flask import Flask
+import datetime as dt
+import numpy as np
+import pandas as pd
 
-# Create a new flask app instance
+import sqlalchemy
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine, func
+
+from flask import Flask, jsonify
+
+# Set up the database
+engine = create_engine("sqlite:///hawaii.sqlite")
+Base = automap_base()
+Base.prepare(engine, reflect=True)
+
+# Save variables for each base class
+Measurement = Base.classes.measurement
+Station = Base.classes.station
+
+# Create a session Link
+session = Session(engine)
+
+#Set up flask, __name__ means to use the file name as the app name
 app = Flask(__name__)
 
-# Create Flask Routes
-@app.route('/')
-def hello_world():
-    return 'Hello world'
+# Define the welcome route
+@app.route("/")
 
-
-
-# Run Flask App
-# Mac: set FLASK_APP=app.py
-# Windows: in Anaconda window run set FLASK_APP=app.py and flask run
-# from the command line
-
-# Create a new route???
-#@app.route('/')
-#def Photos():
-#    return 'Photos'
+# Create function
+def welcome():
+    return(
+    '''
+    Welcome to the Climate Analysis API!
+    Available Routes:
+    /api/v1.0/precipitation
+    /api/v1.0/stations
+    /api/v1.0/tobs
+    /api/v1.0/temp/start/end
+    ''')
