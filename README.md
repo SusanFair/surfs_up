@@ -12,6 +12,9 @@ For the question of peak season, June is definitly the month!  Here are a few po
 * Average temps: June wins again with 75 deg, while Dec has an average temp of 71 deg
 * Low temps:  Both June and Dec had low temperatures that might impact business on those days.  June had a low of 64 deg and Dec's low was down to 56 deg
 
+![June Temps](https://github.com/SusanFair/surfs_up/blob/main/june.png)   
+![Dec Temps](https://github.com/SusanFair/surfs_up/blob/main/december.png)
+
 # Summary: 
 There is good data available in the analysis we completed.  There are enough datapoint to have a good confidence in the data with 1700 in June and 1517 for the month of December.
 
